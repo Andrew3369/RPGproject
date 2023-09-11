@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bokntajaevis2"]
+
+[node name="VisualWorld" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 226.0
+offset_top = 82.0
+offset_right = 685.0
+offset_bottom = 317.0
+text = "bruh hi"
