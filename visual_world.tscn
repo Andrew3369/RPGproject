@@ -8,3 +8,10 @@ offset_top = 82.0
 offset_right = 685.0
 offset_bottom = 317.0
 text = "bruh hi"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 644.0
+offset_top = 67.0
+offset_right = 788.0
+offset_bottom = 156.0
+text = "hallo raidrew"
