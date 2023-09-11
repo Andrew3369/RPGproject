@@ -8,3 +8,11 @@ offset_top = 82.0
 offset_right = 685.0
 offset_bottom = 317.0
 text = "bruh hi"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 217.0
+offset_top = 162.0
+offset_right = 404.0
+offset_bottom = 317.0
+text = "hi Spiros
+"
