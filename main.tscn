@@ -25,13 +25,13 @@ text = "Quit
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -146.0
+offset_left = -147.0
 offset_top = -121.0
-offset_right = 144.0
+offset_right = 143.0
 offset_bottom = -6.0
 text = "							 
 
-							 game"
+					 Project Raizen"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Play Button" to="." method="_on_play_button_pressed"]
