@@ -4718,8 +4718,6 @@ offset_bottom = 207.0
 text = "hi Spiros
 "
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j3ula")
 format = 2
@@ -4754,5 +4752,5 @@ position = Vector2(332, 131)
 position = Vector2(557, 308)
 sprite_frames = SubResource("SpriteFrames_1x1en")
 animation = &"campFire"
-frame_progress = 0.830589
+frame_progress = 0.368631
 speed_scale = 2.0
