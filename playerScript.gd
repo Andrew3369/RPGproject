@@ -16,22 +16,23 @@ func playerMovement():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Input Vars
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
-	
+	#var buttonPress = Input.action_press("")
 	
 	# Run Left and Right
 	if directionX == -1: # Run Left
 		get_node("AnimatedSprite2D").flip_h = true
+		anim.play("runX")
 
 	elif directionX == 1: # Run Right
 		get_node("AnimatedSprite2D").flip_h = false
-
-	if directionX:
-		velocity.x = directionX * SPEED
 		anim.play("runX")
-			
 		
+	if directionX or directionY:
+		velocity.x = directionX * SPEED
+
 	# Run Up and Down
 	if directionY == -1:
 		anim.play("runUp")
@@ -39,9 +40,8 @@ func playerMovement():
 	elif directionY == 1:
 		anim.play("runDown")
 
-	if directionX or directionY:
+	if directionY or directionX:
 		velocity.y = directionY * SPEED
-		#anim.play("runX")
 
 	#If Nothing is pressed (not X/Y)
 	if not directionX and not directionY:
