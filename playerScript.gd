@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -11,47 +10,48 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	anim.play("idle")
-	
+
+func _on_action_pressed(action_name):
+	if action_name == KEY_SPACE:
+		anim.play("attack")
+		print("hi")
+
 func playerMovement():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var directionX = Input.get_axis("ui_left", "ui_right")
-	var directionY = Input.get_axis("ui_up", "ui_down")
-	
-	
-	# Run Left and Right
-	if directionX == -1: # Run Left
+	# Input Vars
+	var directionX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var directionY = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+
+	# Determine which animation to play based on direction
+	if directionX < 0:
 		get_node("AnimatedSprite2D").flip_h = true
-
-	elif directionX == 1: # Run Right
-		get_node("AnimatedSprite2D").flip_h = false
-
-	if directionX:
-		velocity.x = directionX * SPEED
 		anim.play("runX")
-			
+	elif directionX > 0:
+		get_node("AnimatedSprite2D").flip_h = false
+		anim.play("runX")
 		
-	# Run Up and Down
-	if directionY == -1:
+	elif directionY == -1: # Run up
 		anim.play("runUp")
 
 	elif directionY == 1:
-		anim.play("runDown")
+		anim.play("runDown") # Run down
+		
 
-	if directionX or directionY:
+	if directionX != 0 or directionY != 0:
+		velocity.x = directionX * SPEED
 		velocity.y = directionY * SPEED
-		#anim.play("runX")
-
-	#If Nothing is pressed (not X/Y)
-	if not directionX and not directionY:
+		
+	else:
 		anim.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED) # Set to nothing
-		velocity.y = move_toward(velocity.y, 0, SPEED) # Set to nothing
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 func _physics_process(delta):
 	# Add the gravity.
-#	if not is_on_floor():
-#		velocity.y += gravity * delta
+	# if not is_on_floor():
+	#     velocity.y += gravity * delta
+	
 	playerMovement()
-	move_and_slide() #idk what this is lmao
+	move_and_slide()
