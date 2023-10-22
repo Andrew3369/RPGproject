@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfenihpobid5e"]
+
+[ext_resource type="Texture2D" uid="uid://cw8qdnltiw5by" path="res://Dwagon/BlackDragon.png" id="1_1jwtt"]
+[ext_resource type="Script" path="res://dragon.gd" id="1_fqu57"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlos1"]
+radius = 25.0
+height = 100.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d0qh"]
+atlas = ExtResource("1_1jwtt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnuw0"]
+atlas = ExtResource("1_1jwtt")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11bjj"]
+atlas = ExtResource("1_1jwtt")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0jfx"]
+atlas = ExtResource("1_1jwtt")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6w5co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d0qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnuw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11bjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0jfx")
+}],
+"loop": true,
+"name": &"dragonLeft",
+"speed": 5.0
+}]
+
+[node name="Dragon" type="CharacterBody2D"]
+position = Vector2(286, 145)
+script = ExtResource("1_fqu57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vlos1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_6w5co")
+animation = &"dragonLeft"
+frame_progress = 0.279515
