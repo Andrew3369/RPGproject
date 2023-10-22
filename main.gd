@@ -9,9 +9,3 @@ func _on_quit_button_pressed():
 	#pass # Replace with function body.
 	get_tree().quit()
 
-# raidrew >
-
-#bruhlmao hi spiros djkfvcbedwsaJLKHGbhujewkaB
-
-# henlo
-# henlo
