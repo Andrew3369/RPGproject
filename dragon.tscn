@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://dragon.gd" id="1_fqu57"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlos1"]
-radius = 25.0
-height = 100.0
+radius = 22.0
+height = 98.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d0qh"]
 atlas = ExtResource("1_1jwtt")
